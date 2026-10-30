@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Simuler un build
-        run: exit 1s"
+         run: echo "Build en cours"
