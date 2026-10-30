@@ -1,0 +1,12 @@
+name: Exécution planifiée
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  planifie:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher le déclencheur
+        run: echo "Lancé par le planning : ${{ github.event.schedule }}"
