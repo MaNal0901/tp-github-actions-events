@@ -1,0 +1,20 @@
+name: Lancement manuel
+
+on:
+  workflow_dispatch:
+    inputs:
+      environnement:
+        description: "Environnement cible"
+        required: true
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - production
+
+jobs:
+  deployer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher l'environnement choisi
+        run: echo "Déploiement manuel vers ${{ github.event.inputs.environnement }}"
