@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Afficher le déclencheur
-        run: echo "Lancé par le planning : ${{ github.event.schedule }}"
+        run: echo "Lancé par le planning - ${{ github.event.schedule }}"
