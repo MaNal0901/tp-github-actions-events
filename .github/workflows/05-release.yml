@@ -1,0 +1,12 @@
+name: Publication de release
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher la version publiée
+        run: echo "Release publiée - ${{ github.event.release.tag_name }}"
