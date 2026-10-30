@@ -1,0 +1,12 @@
+name: Gestion des issues
+
+on:
+  issues:
+    types: [ opened, labeled ]
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher l'action et le titre
+        run: echo "Issue ${{ github.event.action }} - ${{ github.event.issue.title }}"
