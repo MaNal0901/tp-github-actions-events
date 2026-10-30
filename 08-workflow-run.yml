@@ -1,0 +1,21 @@
+name: Workflow Run
+
+on:
+  workflow_run:
+    workflows: [ "CI Pipeline" ]
+    types: [ completed ]
+
+jobs:
+  apres-succes:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Afficher le résultat
+        run: echo "CI Pipeline a réussi - lancement du déploiement"
+
+  apres-echec:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - name: Afficher le résultat
+        run: echo "CI Pipeline a échoué - déploiement annulé"
